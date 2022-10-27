@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color: rgb(0, 0, 0);
+    --sub-color: rgb(238, 255, 0);
+    --color-text: rgb(255, 255, 255);
+
+    --font-main: 'Overpass', sans-serif;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: var(--main-color);
+    color: var(--color-text);
+    display: grid;
+    place-items: center;
+}
+
+.card{
+    position: relative;
+    width: 50%;
+    background: var(--color-text);
+}
+
+.card h1{
+    background: var(--sub-color);
+    color: var(--color-text);
+    padding: 10px 5px;
+    font-family: var(--font-main);
+}
+
+.card ul{
+    position: relative;
+    padding: 20px;
+}
+
+.card ul li{
+    position: relative;
+    list-style: none;
+    color: var(--main-color);
+    border: none;
+    border-bottom: 2px solid var(--sub-color);
+    padding: 15px 0;
+}
+
+.card ul li:last-child{
+    border-bottom: none;
+}
+
+.card ul li label{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--font-main);
+}
+
+.card ul li label input{
+    visibility: hidden;
+    appearance: none;
+}
+
+.card ul li label p{
+    position: absolute;
+}
+
+.card ul li label span{
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--sub-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card ul li label span::before{
+    content: '';
+    position: absolute;
+    height: 6px;
+    width: 9px;
+    top: 6px;
+    border-left: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+    transform: rotate(-40deg);
+}
+
+.card ul li label input:checked ~ p{
+    text-decoration: line-through;
+    color: var(--sub-color);
+}
+
+
+.card ul li label input:checked ~ span{
+    background: var(--sub-color);
+}
+
+.card ul li label input:checked ~ span::before{
+    border-left: 2px solid var(--color-text);
+    border-bottom: 2px solid var(--color-text);
+}
